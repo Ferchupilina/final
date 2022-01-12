@@ -1,0 +1,21 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+    {% block contenido %}
+        
+    
+    {% endblock %}
+
+    {% block contenido2 %}
+         <h2 class="display-4">Formulario de Profesores que quieren enseñar en nuestra escuela de Rock</h2>
+         {% if miFormulario.errors %}
+            <p>ERROR</p>
+        {% endif %}
+
+        <form action="/AppCoder/profesFormulario" method="POST"> {% csrf_token %}
+            <table>
+                {{ miFormulario.as_table}}
+            </table>
+            <input type="submit" value="Enviar"></input>
+        </form> 
+    {% endblock %}
